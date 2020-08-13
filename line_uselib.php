@@ -69,7 +69,7 @@ if(!is_null($userInfo) && is_array($userInfo) && array_key_exists('userId',$user
 }
  
 //exit;
-echo "<hr>";
+// echo "<hr>";
  
 if(isset($_SESSION['ses_login_userData_val']) && $_SESSION['ses_login_userData_val']!=""){
     // GET USER DATA FROM ID TOKEN
@@ -89,6 +89,7 @@ if(isset($_SESSION['ses_login_userData_val']) && $_SESSION['ses_login_userData_v
     //     echo "<option value=".$row["compcode"].">".$row["company_name"] ."</option>";
         
     } ?>
+    <br>
      <form>
      <div class="container-fluid">
         <div id="response">
