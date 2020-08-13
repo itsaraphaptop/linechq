@@ -25,8 +25,8 @@ $(function(){
  
         $.get('sync.php?memberID=' + memberID + '&userID=' + userID, function(data){
             var result = JSON.parse(data);
-            console.log(data);
-            window.close();
+            console.log(result);
+            window.location.href = "response.php";
         });
     });
 
