@@ -29,7 +29,7 @@ $(function(){
 
                 console.log(item);
             });
-            window.location.href = "response.php";
+            $("#respose").html("Sync Success");
         });
     });
 

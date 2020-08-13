@@ -90,19 +90,21 @@ if(isset($_SESSION['ses_login_userData_val']) && $_SESSION['ses_login_userData_v
         
     } ?>
      <form>
-     <input type="hidden" name="userID" id="user" value="<?=$lineUserData['sub'];?>">
-        <select name="comp_code" id="compcode" class="form-control">
-            <option value="">เลือกบริษัท</option>
-            <?php while($result = mysqli_fetch_assoc($query)){ ?>
-                <option value="<?=$result['compcode']?>"><?=$result['company_name']?></option>
-            <?php } ?>
-        </select>
-        <br>
-        <select name="memID" id="member" class="form-control">
-            <option value="">เลือกชื่อ</option>
-        </select>
-        <br>
-        <button type="button" class="btn btn-success" id="syncs">Sync</button>
+        <div id="response">
+            <input type="hidden" name="userID" id="user" value="<?=$lineUserData['sub'];?>">
+                <select name="comp_code" id="compcode" class="form-control">
+                    <option value="">เลือกบริษัท</option>
+                    <?php while($result = mysqli_fetch_assoc($query)){ ?>
+                        <option value="<?=$result['compcode']?>"><?=$result['company_name']?></option>
+                    <?php } ?>
+                </select>
+                <br>
+                <select name="memID" id="member" class="form-control">
+                    <option value="">เลือกชื่อ</option>
+                </select>
+                <br>
+                <button type="button" class="btn btn-success" id="syncs">Sync</button>
+        </div>
     </form>
 <?php 
     // // echo "<tr>";
