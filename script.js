@@ -22,10 +22,13 @@ $(function(){
         var memberID =  $('#member').val();
         var userID =  $('#user').val();
         console.log(memberID);
- 
+        
         $.get('sync.php?memberID=' + memberID + '&userID=' + userID, function(data){
-          
-            console.log(data);
+            var result = JSON.parse(data);
+            $.each(result, function(index, item){
+
+                console.log(item);
+            });
             window.location.href = "response.php";
         });
     });
