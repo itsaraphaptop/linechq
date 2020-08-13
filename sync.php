@@ -11,11 +11,11 @@ $sql = "update member set lineid = '".$_GET['userID']."' WHERE m_code='".$_GET['
 // }else{
 //     echo "Sync Success";
 // }
-$sql = "select * from member where m_code='".$_GET['memberID']."'";
-$query = mysqli_query($conn, $sql);
-$json = array();
-while($result = mysqli_fetch_assoc($query)) {    
-    array_push($json, $result);
+$sqla = "select * from member where m_code='".$_GET['memberID']."'";
+$querya = mysqli_query($conn, $sqla);
+$jsonq = array();
+while($resultq = mysqli_fetch_assoc($querya)) {    
+    array_push($jsonq, $resultq);
 }
-echo json_encode($json);
+echo json_encode($jsonq);
 ?>
