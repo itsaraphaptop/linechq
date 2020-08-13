@@ -103,7 +103,7 @@ if(isset($_SESSION['ses_login_userData_val']) && $_SESSION['ses_login_userData_v
                     <option value="">เลือกชื่อ</option>
                 </select>
                 <br>
-                <button type="button" class="btn btn-success" id="syncs">Sync</button>
+                <button type="button" class="btn btn-success btn-block" id="syncs">Sync</button>
         </div>
     </form>
 <?php 
