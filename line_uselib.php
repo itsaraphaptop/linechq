@@ -93,21 +93,28 @@ if(isset($_SESSION['ses_login_userData_val']) && $_SESSION['ses_login_userData_v
      <div class="container-fluid">
         <div id="response">
             <input type="hidden" name="userID" id="user" value="<?=$lineUserData['sub'];?>">
-                <select name="comp_code" id="compcode" class="form-control">
-                    <option value="">เลือกบริษัท</option>
-                    <?php while($result = mysqli_fetch_assoc($query)){ ?>
-                        <option value="<?=$result['compcode']?>"><?=$result['company_name']?></option>
-                    <?php } ?>
-                </select>
-                <br>
-                <select name="memID" id="member" class="form-control">
-                    <option value="">เลือกชื่อ</option>
-                </select>
-                <br>
-                <button type="button" class="btn btn-success btn-block" id="syncs">Sync</button>
-     </div>
+            <select name="comp_code" id="compcode" class="form-control">
+                <option value="">เลือกบริษัท</option>
+                <?php while($result = mysqli_fetch_assoc($query)){ ?>
+                    <option value="<?=$result['compcode']?>"><?=$result['company_name']?></option>
+                <?php } ?>
+            </select>
+            <br>
+            <select name="memID" id="member" class="form-control">
+                <option value="">เลือกชื่อ</option>
+            </select>
+            <br>
+            <button type="button" class="btn btn-success btn-block" id="syncs">Sync</button>
         </div>
+        <h5>Line UserID: <?= $lineUserData['sub'];?></h5>
+        <br>
+        <h5>Line Display Name: <?= $lineUserData['name'];?></h5>
+        <br>
+        <img class="rounded-circle" src="<?= $lineUserData['picture'];?>" /><br>
+        <br>
+    </div>
     </form>
+
 <?php 
     // // echo "<tr>";
     // echo "<td>" .$row["compcode"] .  "</td> "; 
