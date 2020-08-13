@@ -21,15 +21,15 @@ $(function(){
     syncs.on('click', function(){
         var memberID =  $('#member').val();
         var userID =  $('#user').val();
+        var response = $("#response");
         console.log(memberID);
         
         $.get('sync.php?memberID=' + memberID + '&userID=' + userID, function(data){
-            // var result = JSON.parse(data);
-            // $.each(result, function(index, item){
-
-            //     console.log(item);
-            // });
-            $("#response").html("Sync Success");
+            var result = JSON.parse(data);
+            $.each(result, function(index, item){
+                response.html("Sync Success");
+            });
+            
         });
     });
 
