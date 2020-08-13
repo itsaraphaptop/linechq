@@ -25,11 +25,11 @@ $(function(){
         console.log(memberID);
         
         $("#syncs").hide();
-        response.html("Please Wait Connect...");
+        response.html('<div class="text-center"> Please Wait Connect... </div>');
         $.get('sync.php?memberID=' + memberID + '&userID=' + userID, function(data){
             var result = JSON.parse(data);
             $.each(result, function(index, item){
-                response.html("Sync Success :");
+                response.html('<div class="text-center"> Sync Success </div>');
             });
             
         });
