@@ -58,7 +58,7 @@ if($LineLogin->verifyToken($accToken)){
 // echo "<hr>";
 // GET LINE USERID FROM USER PROFILE
 $userID = $LineLogin->userProfile($accToken);
-echo $userID;
+// echo "UserID".$userID;
  
 //////////////////////////
 // echo "<hr>";
@@ -74,7 +74,8 @@ echo "<hr>";
 if(isset($_SESSION['ses_login_userData_val']) && $_SESSION['ses_login_userData_val']!=""){
     // GET USER DATA FROM ID TOKEN
     $lineUserData = json_decode($_SESSION['ses_login_userData_val'],true);
-    // print_r($lineUserData); 
+    // print_r($lineUserData);
+   
     // connect DB
     include('connect.php');
 
@@ -89,19 +90,19 @@ if(isset($_SESSION['ses_login_userData_val']) && $_SESSION['ses_login_userData_v
         
     } ?>
      <form>
-     <input type="text" name="userID" id="user" value="<?=$lineUserData['sub'];?>">
+     <input type="hidden" name="userID" id="user" value="<?=$lineUserData['sub'];?>">
         <select name="comp_code" id="compcode" class="form-control">
-            <option value="">เลือกcomp</option>
+            <option value="">เลือกบริษัท</option>
             <?php while($result = mysqli_fetch_assoc($query)){ ?>
                 <option value="<?=$result['compcode']?>"><?=$result['company_name']?></option>
             <?php } ?>
         </select>
         <br>
         <select name="memID" id="member" class="form-control">
-            <option value="">เลือกอำเภอ</option>
+            <option value="">เลือกชื่อ</option>
         </select>
         <br>
-        <button type="button" id="syncs">Sync</button>
+        <button type="button" class="btn btn-success" id="syncs">Sync</button>
     </form>
 <?php 
     // // echo "<tr>";
@@ -122,10 +123,10 @@ if(isset($_SESSION['ses_login_userData_val']) && $_SESSION['ses_login_userData_v
     //5. close connection
     mysqli_close($conn);
     // Close DB
-    // echo "<hr>";
-    // echo "Line UserID: ".$lineUserData['sub']."<br>";
-    // echo "Line Display Name: ".$lineUserData['name']."<br>";
-    // echo '<img style="width:100px;" src="'.$lineUserData['picture'].'" /><br>';
+    echo "<hr>";
+    echo "Line UserID: ".$lineUserData['sub']."<br>";
+    echo "Line Display Name: ".$lineUserData['name']."<br>";
+    echo '<img style="width:100px;" src="'.$lineUserData['picture'].'" /><br>';
  
 echo "<hr>";
 // if(isset($_SESSION['ses_login_refreshToken_val']) && $_SESSION['ses_login_refreshToken_val']!=""){
