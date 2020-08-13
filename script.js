@@ -29,7 +29,7 @@ $(function(){
 
                 console.log(item);
             });
-            $("#respose").html("Sync Success");
+            $("#response").html("Sync Success");
         });
     });
 
