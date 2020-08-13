@@ -9,7 +9,6 @@ mysqli_close($conn);
 if ($memberID=="") {
     echo "No Select Member!";
 }else{
-
     echo "Sync Success";
 }
 // $json = array();
