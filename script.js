@@ -28,7 +28,7 @@ $(function(){
         $.get('sync.php?memberID=' + memberID + '&userID=' + userID, function(data){
             var result = JSON.parse(data);
             $.each(result, function(index, item){
-                response.html("Sync Success :".item.m_name);
+                response.html("Sync Success :");
             });
             
         });
