@@ -1,3 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <!-- <script src="dist/plugins/jquery/jquery.min.js"></script> -->
+</head>
+<body>
 <?php
 session_start();
 require_once("LineLoginLib.php");
@@ -11,9 +28,9 @@ error_reporting(E_ALL);
 //require_once("dbconnect.php");
  
 /// ส่วนการกำหนดค่านี้สามารถทำเป็นไฟล์ include แทนได้
-define('LINE_LOGIN_CHANNEL_ID','1654566118');
-define('LINE_LOGIN_CHANNEL_SECRET','9727dc1c160c724390c648c7710f2a8c');
-define('LINE_LOGIN_CALLBACK_URL','https://line-inac.herokuapp.com/login_uselib_callback.php');
+define('LINE_LOGIN_CHANNEL_ID','1654625644');
+define('LINE_LOGIN_CHANNEL_SECRET','31b181987a9b649b3c894403f9fc2dbf');
+define('LINE_LOGIN_CALLBACK_URL','https://thechoiceline.herokuapp.com/login_uselib_callback.php');
  
 $LineLogin = new LineLoginLib(
     LINE_LOGIN_CHANNEL_ID, LINE_LOGIN_CHANNEL_SECRET, LINE_LOGIN_CALLBACK_URL);
@@ -26,29 +43,29 @@ if(!isset($_SESSION['ses_login_accToken_val'])){
 $accToken = $_SESSION['ses_login_accToken_val'];
 // Status Token Check
 if($LineLogin->verifyToken($accToken)){
-    echo $accToken."<br><hr>";
-    echo "Token Status OK <br>";  
+    // echo $accToken."<br><hr>";
+    // echo "Token Status OK <br>";  
 }
  
  
-echo "<pre>";
+// echo "<pre>";
 // Status Token Check with Result 
 //$statusToken = $LineLogin->verifyToken($accToken, true);
 //print_r($statusToken);
  
  
 //////////////////////////
-echo "<hr>";
+// echo "<hr>";
 // GET LINE USERID FROM USER PROFILE
-//$userID = $LineLogin->userProfile($accToken);
-//echo $userID;
+$userID = $LineLogin->userProfile($accToken);
+echo $userID;
  
 //////////////////////////
-echo "<hr>";
+// echo "<hr>";
 // GET LINE USER PROFILE 
 $userInfo = $LineLogin->userProfile($accToken,true);
 if(!is_null($userInfo) && is_array($userInfo) && array_key_exists('userId',$userInfo)){
-    print_r($userInfo);
+    // print_r($userInfo);
 }
  
 //exit;
@@ -57,51 +74,67 @@ echo "<hr>";
 if(isset($_SESSION['ses_login_userData_val']) && $_SESSION['ses_login_userData_val']!=""){
     // GET USER DATA FROM ID TOKEN
     $lineUserData = json_decode($_SESSION['ses_login_userData_val'],true);
-    print_r($lineUserData); 
-
-    $con= mysqli_connect("203.150.202.108","sapicon","Icon@2020","cm_uat") or die("Error: " . mysqli_error($con));
-    mysqli_query($con, "SET NAMES 'utf8' ");
+    // print_r($lineUserData); 
+    // connect DB
+    include('connect.php');
 
     //2. query ข้อมูลจากตาราง: 
-    $query = "SELECT * FROM company ORDER BY company_id asc" or die("Error:" . mysqli_error()); 
+    $sql = "SELECT * FROM company ORDER BY company_id asc" or die("Error:" . mysqli_error()); 
     //3. execute the query. 
-    $result = mysqli_query($con, $query); 
-    //4 . แสดงข้อมูลที่ query ออกมา: 
-
-    //ใช้ตารางในการจัดข้อมูล
-    echo "<table border='1' align='center' width='500'>";
-    //หัวข้อตาราง
-    echo "<tr align='center' bgcolor='#CCCCCC'><td>รหัส</td><td>Uername</td><td>ชื่อ</td><td>นามสกุล</td><td>อีเมล์</td><td>แก้ไข</td><td>ลบ</td></tr>";
-    while($row = mysqli_fetch_array($result)) { 
-    echo "<tr>";
-    echo "<td>" .$row["compcode"] .  "</td> "; 
-    echo "<td>" .$row["company_name"] .  "</td> ";  
-    //แก้ไขข้อมูลส่่ง member_id ที่จะแก้ไขไปที่ฟอร์ม
-    echo "<td><a href='userupdateform.php?compcode=$row[0]'>edit</a></td> ";
+    $query = mysqli_query($conn, $sql); 
+   
+    // echo "<select id='compcode' class='form-control'>";
+    // while($row = mysqli_fetch_array($result)) { 
+    //     echo "<option value=".$row["compcode"].">".$row["company_name"] ."</option>";
+        
+    } ?>
+     <form>
+     <input type="text" name="userID" id="user" value="<?=$lineUserData['sub'];?>">
+        <select name="comp_code" id="compcode" class="form-control">
+            <option value="">เลือกcomp</option>
+            <?php while($result = mysqli_fetch_assoc($query)){ ?>
+                <option value="<?=$result['compcode']?>"><?=$result['company_name']?></option>
+            <?php } ?>
+        </select>
+        <br>
+        <select name="memID" id="member" class="form-control">
+            <option value="">เลือกอำเภอ</option>
+        </select>
+        <br>
+        <button type="button" id="syncs">Sync</button>
+    </form>
+<?php 
+    // // echo "<tr>";
+    // echo "<td>" .$row["compcode"] .  "</td> "; 
+    // echo "<td>" .$row["company_name"] .  "</td> ";  
+    // //แก้ไขข้อมูลส่่ง member_id ที่จะแก้ไขไปที่ฟอร์ม
+    // echo "<td><a href='userupdateform.php?compcode=$row[0]'>edit</a></td> ";
     
-    //ลบข้อมูล
-    echo "<td><a href='UserDelete.php?compcode=$row[0]' onclick=\"return confirm('Do you want to delete this record? !!!')\">del</a></td> ";
-    echo "</tr>";
-    }
-    echo "</table>";
+    // //ลบข้อมูล
+    // echo "<td><a href='UserDelete.php?compcode=$row[0]' onclick=\"return confirm('Do you want to delete this record? !!!')\">del</a></td> ";
+    // // echo "</tr>";
+    // }
+    
+    // echo "</select>";
+    
+    // echo "<a class='btn btn-success' href='#'>edit</a>";
+    // echo "</table>";
     //5. close connection
-    mysqli_close($con);
-
-    echo "<hr>";
-    echo "Line UserID: ".$lineUserData['sub']."<br>";
-    echo "Line Display Name: ".$lineUserData['name']."<br>";
-    echo '<img style="width:100px;" src="'.$lineUserData['picture'].'" /><br>';
-}
- 
+    mysqli_close($conn);
+    // Close DB
+    // echo "<hr>";
+    // echo "Line UserID: ".$lineUserData['sub']."<br>";
+    // echo "Line Display Name: ".$lineUserData['name']."<br>";
+    // echo '<img style="width:100px;" src="'.$lineUserData['picture'].'" /><br>';
  
 echo "<hr>";
-if(isset($_SESSION['ses_login_refreshToken_val']) && $_SESSION['ses_login_refreshToken_val']!=""){
-    echo '
-    <form method="post">
-    <button type="submit" name="refreshToken">Refresh Access Token</button>
-    </form>   
-    ';  
-}
+// if(isset($_SESSION['ses_login_refreshToken_val']) && $_SESSION['ses_login_refreshToken_val']!=""){
+//     echo '
+//     <form method="post">
+//     <button type="submit" name="refreshToken">Refresh Access Token</button>
+//     </form>   
+//     ';  
+// }
 if(isset($_SESSION['ses_login_refreshToken_val']) && $_SESSION['ses_login_refreshToken_val']!=""){
     if(isset($_POST['refreshToken'])){
         $refreshToken = $_SESSION['ses_login_refreshToken_val'];
@@ -126,7 +159,7 @@ echo "<hr>";
 if($LineLogin->verifyToken($accToken)){
 ?>
 <form method="post">
-<button type="submit" name="lineLogout">LINE Logout</button>
+<button type="submit" name="lineLogout">Logout</button>
 </form>
 <?php }else{ ?>
 <form method="post">
@@ -156,3 +189,7 @@ if(isset($_POST['lineLogout'])){
     $LineLogin->redirect("line_uselib.php");
 }
 ?>
+<script src="script.js"></script>
+</body>
+</html>
+
