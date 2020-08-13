@@ -134,10 +134,10 @@ if(isset($_SESSION['ses_login_userData_val']) && $_SESSION['ses_login_userData_v
     //5. close connection
     mysqli_close($conn);
     // Close DB
-    echo "<hr>";
-    echo "Line UserID: ".$lineUserData['sub']."<br>";
-    echo "Line Display Name: ".$lineUserData['name']."<br>";
-    echo '<img style="width:100px;" src="'.$lineUserData['picture'].'" /><br>';
+    // echo "<hr>";
+    // echo "Line UserID: ".$lineUserData['sub']."<br>";
+    // echo "Line Display Name: ".$lineUserData['name']."<br>";
+    // echo '<img style="width:100px;" src="'.$lineUserData['picture'].'" /><br>';
  
 // echo "<hr>";
 // if(isset($_SESSION['ses_login_refreshToken_val']) && $_SESSION['ses_login_refreshToken_val']!=""){
