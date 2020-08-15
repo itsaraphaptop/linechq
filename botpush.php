@@ -22,11 +22,11 @@
     $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($token);
     $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $secret]);
   
-$request = file_get_contents('php://input');   // Get request content
-$request_array = json_decode($request, true);   // Decode JSON to Array
-$arrayHeader = array();
-$arrayHeader[] = "Content-Type: application/json";
-$arrayHeader[] = "Authorization: Bearer {$token}";
+    $request = file_get_contents('php://input');   // Get request content
+    $request_array = json_decode($request, true);   // Decode JSON to Array
+    $arrayHeader = array();
+    $arrayHeader[] = "Content-Type: application/json";
+    $arrayHeader[] = "Authorization: Bearer {$token}";
 // // if(isset($_POST['to']) && trim($_POST['to']) != '' && isset($_POST['text']) && trim($_POST['text']) != ''){
   //   if(trim($request_array['id']) != ''){
     //   // check for send message only
@@ -65,7 +65,7 @@ $arrayHeader[] = "Authorization: Bearer {$token}";
 
           $arrayPostData['messages'][2]['contents']['header']['contents'][1]['type'] =  "text";
           $arrayPostData['messages'][2]['contents']['header']['contents'][1]['text'] =  $request_array['price'];
-          $arrayPostData['messages'][2]['contents']['header']['contents'][1]['size'] =  "3xl";
+          $arrayPostData['messages'][2]['contents']['header']['contents'][1]['size'] =  "lg";
           $arrayPostData['messages'][2]['contents']['header']['contents'][1]['weight'] =  "bold";
           $arrayPostData['messages'][2]['contents']['header']['contents'][1]['color'] =  "#000000";
 
