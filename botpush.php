@@ -106,7 +106,10 @@
           $arrayPostData['messages'][2]['contents']['footer']['contents'][0]['color'] =  "#0084B6";
           $arrayPostData['messages'][2]['contents']['footer']['contents'][0]['action']['type'] =  "uri";
           $arrayPostData['messages'][2]['contents']['footer']['contents'][0]['action']['label'] =  "View Detail";
-          $arrayPostData['messages'][2]['contents']['footer']['contents'][0]['action']['uri'] =  "http://cm.thecreatorshq.com/cm_uat/";
+          if($request_array['moduletype']=="PR"){
+            $arrayPostData['messages'][2]['contents']['footer']['contents'][0]['action']['uri'] =  "".$request_array['unit']."/data_master/pr_approve_mobile/".$request_array['doc']."/".$request_array['compcode_line']."/".$request_array['user'];
+          }
+          
           // var_dump($arrayPostData);
           // die();
       pushMsg($arrayHeader,$arrayPostData);
