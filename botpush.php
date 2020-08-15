@@ -107,8 +107,8 @@
           $arrayPostData['messages'][2]['contents']['footer']['contents'][0]['action']['type'] =  "uri";
           $arrayPostData['messages'][2]['contents']['footer']['contents'][0]['action']['label'] =  "View Detail";
           $arrayPostData['messages'][2]['contents']['footer']['contents'][0]['action']['uri'] =  "http://cm.thecreatorshq.com/cm_uat/";
-          // var_dump($arrayPostData);
-          // die();
+          var_dump($arrayPostData);
+          die();
       pushMsg($arrayHeader,$arrayPostData);
       echo true;
    }elseif ($message == "flex") {
