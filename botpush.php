@@ -106,9 +106,8 @@
           $arrayPostData['messages'][2]['contents']['footer']['contents'][0]['color'] =  "#0084B6";
           $arrayPostData['messages'][2]['contents']['footer']['contents'][0]['action']['type'] =  "uri";
           $arrayPostData['messages'][2]['contents']['footer']['contents'][0]['action']['label'] =  "View Detail";
-          if($request_array['moduletype']=="PR"){
-            $arrayPostData['messages'][2]['contents']['footer']['contents'][0]['action']['uri'] =  $request_array['base_url'];
-          }
+          $arrayPostData['messages'][2]['contents']['footer']['contents'][0]['action']['uri'] =  $request_array['base_url'];
+          
           
           // var_dump($arrayPostData);
           // die();
