@@ -40,7 +40,7 @@
       //   }else{
         //     echo "false";
         //   }
-        
+        print_r($request_array);
       $message = $request_array['type'];
         if($message == "message"){
           $arrayPostData['to'] = $request_array['id'];
