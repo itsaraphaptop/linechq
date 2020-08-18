@@ -14,8 +14,6 @@ $userID =  $_GET['userID'];
 // }
 $sqla = "select m_user,m_pass from member where m_user='".$username."' and m_pass='".sha1(sha1(md5($password)))."'";
 $querya = mysqli_query($conn, $sqla);
-var_dump($querya);
-die();
 if (mysqli_num_rows($querya) > 0) {
     // $jsonq = array();
     // while($resultq = mysqli_fetch_assoc($querya)) {    
