@@ -2,6 +2,7 @@ $(function(){
     var compcode = $('#compcode');
     var memberID = $('#member');
     var syncs = $('#syncs');
+    var lineinfo = $('#lineinfo');
     // on change province
     compcode.on('change', function(){
         var compID = $(this).val();
@@ -17,7 +18,7 @@ $(function(){
             });
         });
     });
-    $("#lineinfo").hide();
+   
     syncs.on('click', function(){
         // var memberID =  $('#member').val();
         var userID =  $('#user').val();
@@ -30,7 +31,7 @@ $(function(){
         $.get('sync.php?uName=' + username +'&passWord='+ password + '&userID=' + userID, function(data){
             if (data!=0) {
                 response.html('<div class="text-center"><h3> Sync Success </h3></div>');
-                $("#lineinfo").show();
+                lineinfo.show();
             } else {
                 $("#error").html("Login Fail");
                 $("#syncs").show();
