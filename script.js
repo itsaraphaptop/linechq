@@ -18,7 +18,7 @@ $(function(){
             });
         });
     });
-   
+    lineinfo.hide();
     syncs.on('click', function(){
         // var memberID =  $('#member').val();
         var userID =  $('#user').val();
