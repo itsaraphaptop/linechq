@@ -33,6 +33,7 @@ $(function(){
                 
             } else {
                 $("#error").html("Login Fail");
+                $("#syncs").show();
             }
             // var result = JSON.parse(data);
             // $.each(result, function(index, item){
