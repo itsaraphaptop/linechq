@@ -105,13 +105,13 @@ if(isset($_SESSION['ses_login_userData_val']) && $_SESSION['ses_login_userData_v
                 <option value="">เลือกชื่อ</option>
             </select>
             <br> -->
-            <div class="row">
+            <div class="col-md-12">
                 <div class="form-group">
                     <label for="">Username</label>
                     <input type="text" class="form-control">
                 </div>
             </div>
-            <div class="row">
+            <div class="col-md-12">
                 <div class="form-group">
                     <label for="">Password</label>
                     <input type="text" class="form-control">
