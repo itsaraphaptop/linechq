@@ -122,12 +122,12 @@ if(isset($_SESSION['ses_login_userData_val']) && $_SESSION['ses_login_userData_v
         </div>
         <div id="lineinfo">
             <br>
-            <h5>Line UserID: <?= $lineUserData['sub'];?></h5>
+            <div class="text-center"><img class="rounded-circle" style="width:100px;" src="<?= $lineUserData['picture'];?>" /></div><br>
             <br>
-            <h5>Line Display Name: <?= $lineUserData['name'];?></h5>
+            <!-- <div class="text-center"><h5>Line UserID: <?= $lineUserData['sub'];?></h5></div> -->
+            <div class="text-center"><h5>Line Display Name: <?= $lineUserData['name'];?></h5></div>
             <br>
-            <img class="rounded-circle" style="width:100px;" src="<?= $lineUserData['picture'];?>" /><br>
-            <br>
+            
         </div>
     </div>
     </form>
