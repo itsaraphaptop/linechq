@@ -35,7 +35,7 @@ $(function(){
         });
     });
 
-
+    window.location.href = "http://stackoverflow.com";
 
     console.log('ddddd');
 });
