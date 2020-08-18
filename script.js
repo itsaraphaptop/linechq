@@ -19,18 +19,21 @@ $(function(){
     });
    
     syncs.on('click', function(){
-        var memberID =  $('#member').val();
+        // var memberID =  $('#member').val();
         var userID =  $('#user').val();
+        var username = $("#username").val();
+        var password = $("#password").val();
         var response = $("#response");
         console.log(memberID);
         
         $("#syncs").hide();
         response.html('<div class="text-center"><h3>Please Wait Connect...</h3></div>');
-        $.get('sync.php?memberID=' + memberID + '&userID=' + userID, function(data){
-            var result = JSON.parse(data);
-            $.each(result, function(index, item){
-                response.html('<div class="text-center"><h3> Sync Success </h3></div>');
-            });
+        $.get('sync.php?uName=' + username +'&passWord='+ password + '&userID=' + userID, function(data){
+            response.html(data);
+            // var result = JSON.parse(data);
+            // $.each(result, function(index, item){
+            //     response.html('<div class="text-center"><h3> Sync Success </h3></div>');
+            // });
             
         });
         window.location.href = "http://stackoverflow.com";
