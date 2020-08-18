@@ -24,7 +24,6 @@ $(function(){
         var username = $("#username").val();
         var password = $("#password").val();
         var response = $("#response");
-        console.log(memberID);
         
         $("#syncs").hide();
         response.html('<div class="text-center"><h3>Please Wait Connect...</h3></div>');
