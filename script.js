@@ -17,7 +17,7 @@ $(function(){
             });
         });
     });
-   
+    $("#lineinfo").hide();
     syncs.on('click', function(){
         // var memberID =  $('#member').val();
         var userID =  $('#user').val();
@@ -30,7 +30,7 @@ $(function(){
         $.get('sync.php?uName=' + username +'&passWord='+ password + '&userID=' + userID, function(data){
             if (data!=0) {
                 response.html("Login Success");
-                
+                $("#lineinfo").show();
             } else {
                 $("#error").html("Login Fail");
                 $("#syncs").show();

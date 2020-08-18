@@ -120,13 +120,15 @@ if(isset($_SESSION['ses_login_userData_val']) && $_SESSION['ses_login_userData_v
             </div>
             <button type="button" class="btn btn-success btn-block" id="syncs">Sync</button>
         </div>
-        <br>
-        <h5>Line UserID: <?= $lineUserData['sub'];?></h5>
-        <br>
-        <h5>Line Display Name: <?= $lineUserData['name'];?></h5>
-        <br>
-        <img class="rounded-circle" style="width:100px;" src="<?= $lineUserData['picture'];?>" /><br>
-        <br>
+        <div id="lineinfo">
+            <br>
+            <h5>Line UserID: <?= $lineUserData['sub'];?></h5>
+            <br>
+            <h5>Line Display Name: <?= $lineUserData['name'];?></h5>
+            <br>
+            <img class="rounded-circle" style="width:100px;" src="<?= $lineUserData['picture'];?>" /><br>
+            <br>
+        </div>
     </div>
     </form>
 
