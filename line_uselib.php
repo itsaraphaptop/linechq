@@ -187,13 +187,13 @@ if(isset($_SESSION['ses_login_refreshToken_val']) && $_SESSION['ses_login_refres
 echo "<hr>";
 if($LineLogin->verifyToken($accToken)){
 ?>
-<form method="post">
+<!-- <form method="post">
 <button type="submit" name="lineLogout">Logout</button>
 </form>
 <?php }else{ ?>
 <form method="post">
 <button type="submit" name="lineLogin">LINE Login</button>
-</form>   
+</form>    -->
 <?php } ?>
 <?php
 if(isset($_POST['lineLogin'])){
