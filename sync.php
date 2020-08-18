@@ -21,9 +21,9 @@ if (mysqli_num_rows($querya) > 0) {
     //     array_push($jsonq, $resultq);
     // }
     // echo json_encode($jsonq);
-    echo "login success";
+    echo 1;
 }else{
-    echo "login fail";
+    echo 0;
 }
 
 ?>

@@ -105,6 +105,7 @@ if(isset($_SESSION['ses_login_userData_val']) && $_SESSION['ses_login_userData_v
                 <option value="">เลือกชื่อ</option>
             </select>
             <br> -->
+            <span id="error"></span>
             <div class="col-md-12">
                 <div class="form-group">
                     <label for="">Username</label>
