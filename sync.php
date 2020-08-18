@@ -12,7 +12,7 @@ $userID =  $_GET['userID'];
 // }else{
 //     echo "Sync Success";
 // }
-$sqla = "select m_user,m_pass from member where m_user='".$username."' and m_pass='".$password."'";
+$sqla = "select m_user,m_pass from member where m_user='".$username."' and m_pass='".sha1(sha1(md5($password)))."'";
 $querya = mysqli_query($conn, $sqla);
 if ($querya->num_rows > 0) {
     // $jsonq = array();
