@@ -93,7 +93,7 @@ if(isset($_SESSION['ses_login_userData_val']) && $_SESSION['ses_login_userData_v
      <form>
      <div class="container-fluid">
         <div id="response">
-            <input type="hidden" name="userID" id="user" value="<?=$lineUserData['sub'];?>">
+            <!-- <input type="hidden" name="userID" id="user" value="<?=$lineUserData['sub'];?>">
             <select name="comp_code" id="compcode" class="form-control">
                 <option value="">เลือกบริษัท</option>
                 <?php while($result = mysqli_fetch_assoc($query)){ ?>
@@ -104,7 +104,13 @@ if(isset($_SESSION['ses_login_userData_val']) && $_SESSION['ses_login_userData_v
             <select name="memID" id="member" class="form-control">
                 <option value="">เลือกชื่อ</option>
             </select>
-            <br>
+            <br> -->
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="">Username</label>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
             <button type="button" class="btn btn-success btn-block" id="syncs">Sync</button>
         </div>
         <br>
