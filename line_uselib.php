@@ -121,7 +121,7 @@ if(isset($_SESSION['ses_login_userData_val']) && $_SESSION['ses_login_userData_v
                     <input type="text" class="form-control" name="password" id ="password">
                 </div>
             </div>
-            <button type="button" class="btn btn-success btn-block" id="syncs">Sync</button>
+            <button type="button" class="btn btn-success btn-block btn-lg" id="syncs">เข้าสู่ระบบ</button>
         </div>
         <div id="lineinfo">
             <br>
