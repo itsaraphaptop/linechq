@@ -26,7 +26,7 @@ $(function(){
         var response = $("#response");
         
         $("#syncs").hide();
-        response.html('<div class="text-center"><h3>Please Wait Connect...</h3></div>');
+        // response.html('<div class="text-center"><h3>Please Wait Connect...</h3></div>');
         $.get('sync.php?uName=' + username +'&passWord='+ password + '&userID=' + userID, function(data){
             if (data!=0) {
                 response.html("Login Success");
