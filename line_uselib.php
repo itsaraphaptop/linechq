@@ -80,7 +80,7 @@ if(isset($_SESSION['ses_login_userData_val']) && $_SESSION['ses_login_userData_v
     include('connect.php');
 
     //2. query ข้อมูลจากตาราง: 
-    $sql = "SELECT * FROM company ORDER BY company_id asc" or die("Error:" . mysqli_error()); 
+    $sql = "select * from member where lineid = '".$lineUserData['sub']."'" or die("Error:" . mysqli_error()); 
     //3. execute the query. 
     $query = mysqli_query($conn, $sql); 
    
@@ -105,23 +105,33 @@ if(isset($_SESSION['ses_login_userData_val']) && $_SESSION['ses_login_userData_v
                 <option value="">เลือกชื่อ</option>
             </select>
             <br> -->
-            <br>
-            <div class="text-center"><h3>CM Login</h3></div>
-            <br>
-            <div id="error"><span></span></div>
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label for="">Username</label>
-                    <input type="text" class="form-control" name="username" id="username">
+            <?php if (mysqli_num_rows($query) > 0) {?>
+                <br>
+                <div class="text-center"><img class="rounded-circle" style="width:100px;" src="<?= $lineUserData['picture'];?>" /></div><br>
+                <br>
+                <div class="text-center"><p>เข้าบัญชีด้วยบัญชี</p></div>
+                <!-- <div class="text-center"><h5>Line UserID: <?= $lineUserData['sub'];?></h5></div> -->
+                <div class="text-center"><b><?= $lineUserData['name'];?></b></div>
+                <br>
+            <?php }else{?>
+                <br>
+                <div class="text-center"><h3>CM Login</h3></div>
+                <br>
+                <div id="error"><span></span></div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="">Username</label>
+                        <input type="text" class="form-control" name="username" id="username">
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label for="">Password</label>
-                    <input type="password" class="form-control" name="password" id ="password">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="">Password</label>
+                        <input type="password" class="form-control" name="password" id ="password">
+                    </div>
                 </div>
-            </div>
-            <button type="button" class="btn btn-success btn-block btn-lg" id="syncs">เข้าสู่ระบบ</button>
+                <button type="button" class="btn btn-success btn-block btn-lg" id="syncs">เข้าสู่ระบบ</button>
+            <?php }?>
         </div>
         <div id="lineinfo">
             <br>
