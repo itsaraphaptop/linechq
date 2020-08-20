@@ -43,7 +43,7 @@
         
       $message = $request_array['type'];
         if($message == "message"){
-          // $arrayPostData['to'] = $request_array['id'];
+          $arrayPostData['to'] = $request_array['id'];
           // $arrayPostData['messages'][0]['type'] = "text";
           // $arrayPostData['messages'][0]['text'] = $request_array['text'];
           // $arrayPostData['messages'][1]['type'] = "sticker";
