@@ -43,9 +43,9 @@
         
       $message = $request_array['type'];
         // if($message == "message"){
-          $arrayPostData['to'] = $request_array['id'];
+          $arrayPostData['to'] = 'U3d004281134e0c2ee683fea716b45ae9';
           $arrayPostData['messages'][0]['type'] = "text";
-          $arrayPostData['messages'][0]['text'] = $request_array['text'];
+          $arrayPostData['messages'][0]['text'] = "test";
           // $arrayPostData['messages'][1]['type'] = "sticker";
           // $arrayPostData['messages'][1]['packageId'] = "2";
 
@@ -116,7 +116,7 @@
       pushMsg($arrayHeader,$arrayPostData);
       echo true;
 
-      
+
    function pushMsg($arrayHeader,$arrayPostData){
       $strUrl = "https://api.line.me/v2/bot/message/push";
       $ch = curl_init();
