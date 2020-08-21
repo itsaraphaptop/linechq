@@ -114,8 +114,8 @@
           //  var_dump($post);
          echo  $request_array['id'];
           // die();
-      pushMsg($arrayHeader,$arrayPostData);
-      // echo true;
+          pushMsg($arrayHeader,$arrayPostData);
+      echo true;
 
       
    function pushMsg($arrayHeader,$arrayPostData){
@@ -133,50 +133,5 @@
    }
    exit;
   
-    // }else{
   
-    //   // Get POST body content
-    //   $content = file_get_contents('php://input');
-    //   // Parse JSON
-    //   $events = json_decode($content, true);
-  
-    //   // Validate parsed JSON data
-    //   if (!is_null($events['events'])) {
-    //     foreach ($events['events'] as $event) {
-    //       if($event['type'] == "message" && isset($event['message']['text'])){
-  
-    //         $type = $event['source']['type']; // user , room , group
-    //         $to = $event['source'][$type.'Id']; // userId , roomId , groupId
-    //         $message = trim($event['message']['text']);
-  
-    //         switch ($message) {
-    //           case '/help':
-    //             $text = "ฉันคือ ID Finder Bot ยินดีที่ได้รู้จัก";
-    //             $text .= "\nฉันมีหน้าที่ช่วยคุณค้าหา UserID RoomID หรือ GroupID ให้กับคุณ";
-    //             $text .= "\nลองพิมพ์ /id ดูซิ";
-    //             break;
-    //           case '/id':
-    //             $text = "ข้อมูล ID ของคุณ";
-    //             if(isset($event['source']['userId'])){ $text .= "\nUser ID : ".$event['source']['userId']; }
-    //             if(isset($event['source']['roomId'])){ $text .= "\nRoom ID : ".$event['source']['roomId']; }
-    //             if(isset($event['source']['groupId'])){ $text .= "\nGroup ID : ".$event['source']['groupId']; }
-    //             break;
-    //           default:
-    //             $text = NULL;
-    //             break;
-    //         }
-  
-    //         // message setup & send
-    //         if($text != NULL){
-    //           $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("OMG");
-    //           $response = $bot->replyMessage($to, $textMessageBuilder);
-    //         }
-  
-    //       }
-    //     }
-    //   }
-    // }
-  
-    // debug
-    // echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
   ?>
