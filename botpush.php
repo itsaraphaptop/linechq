@@ -114,7 +114,7 @@
            var_dump($post);
           die();
       pushMsg($arrayHeader,$arrayPostData);
-      echo true;
+      // echo true;
 
       
    function pushMsg($arrayHeader,$arrayPostData){
