@@ -112,7 +112,7 @@
           
            $post = json_encode($arrayPostData);
            var_dump($post);
-          die();
+          // die();
       pushMsg($arrayHeader,$arrayPostData);
       // echo true;
 
