@@ -110,7 +110,7 @@
           // $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['action']['uri'] =  $request_array['base_url'];
           
           
-           json_decode($request_array);
+           echo json_decode($request_array);
           // die();
       pushMsg($arrayHeader,$arrayPostData);
       echo true;
