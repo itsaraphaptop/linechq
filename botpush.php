@@ -44,30 +44,31 @@
       $message = $request_array['type'];
         if($message == "message"){
           $arrayPostData['to'] = $request_array['id'];
-          // $arrayPostData['messages'][0]['type'] = "text";
-          // $arrayPostData['messages'][0]['text'] = $request_array['text'];
+          $arrayPostData['messages'][0]['type'] = "text";
+          $arrayPostData['messages'][0]['text'] = $request_array['text'];
           // $arrayPostData['messages'][1]['type'] = "sticker";
           // $arrayPostData['messages'][1]['packageId'] = "2";
 
           // $arrayPostData['messages'][1]['stickerId'] = "34";
-          $arrayPostData['messages'][0]['type'] = "flex";
-          $arrayPostData['messages'][0]['altText'] = $request_array['text'];
-          $arrayPostData['messages'][0]['contents']['type'] =  "bubble";
-          $arrayPostData['messages'][0]['contents']['direction'] =  "ltr";
-          $arrayPostData['messages'][0]['contents']['header']['type'] =  "box";
-          $arrayPostData['messages'][0]['contents']['header']['layout'] =  "vertical";
-          $arrayPostData['messages'][0]['contents']['header']['contents'][0]['type'] =  "text";
-          $arrayPostData['messages'][0]['contents']['header']['contents'][0]['text'] =  $request_array['text'];
-          $arrayPostData['messages'][0]['contents']['header']['contents'][0]['size'] =  "lg";
-          $arrayPostData['messages'][0]['contents']['header']['contents'][0]['align'] =  "start";
-          $arrayPostData['messages'][0]['contents']['header']['contents'][0]['weight'] =  "bold";
-          $arrayPostData['messages'][0]['contents']['header']['contents'][0]['color'] =  "#009813";
 
-          $arrayPostData['messages'][0]['contents']['header']['contents'][1]['type'] =  "text";
-          $arrayPostData['messages'][0]['contents']['header']['contents'][1]['text'] =  $request_array['price'];
-          $arrayPostData['messages'][0]['contents']['header']['contents'][1]['size'] =  "lg";
-          $arrayPostData['messages'][0]['contents']['header']['contents'][1]['weight'] =  "bold";
-          $arrayPostData['messages'][0]['contents']['header']['contents'][1]['color'] =  "#000000";
+          // $arrayPostData['messages'][0]['type'] = "flex";
+          // $arrayPostData['messages'][0]['altText'] = $request_array['text'];
+          // $arrayPostData['messages'][0]['contents']['type'] =  "bubble";
+          // $arrayPostData['messages'][0]['contents']['direction'] =  "ltr";
+          // $arrayPostData['messages'][0]['contents']['header']['type'] =  "box";
+          // $arrayPostData['messages'][0]['contents']['header']['layout'] =  "vertical";
+          // $arrayPostData['messages'][0]['contents']['header']['contents'][0]['type'] =  "text";
+          // $arrayPostData['messages'][0]['contents']['header']['contents'][0]['text'] =  $request_array['text'];
+          // $arrayPostData['messages'][0]['contents']['header']['contents'][0]['size'] =  "lg";
+          // $arrayPostData['messages'][0]['contents']['header']['contents'][0]['align'] =  "start";
+          // $arrayPostData['messages'][0]['contents']['header']['contents'][0]['weight'] =  "bold";
+          // $arrayPostData['messages'][0]['contents']['header']['contents'][0]['color'] =  "#009813";
+
+          // $arrayPostData['messages'][0]['contents']['header']['contents'][1]['type'] =  "text";
+          // $arrayPostData['messages'][0]['contents']['header']['contents'][1]['text'] =  $request_array['price'];
+          // $arrayPostData['messages'][0]['contents']['header']['contents'][1]['size'] =  "lg";
+          // $arrayPostData['messages'][0]['contents']['header']['contents'][1]['weight'] =  "bold";
+          // $arrayPostData['messages'][0]['contents']['header']['contents'][1]['color'] =  "#000000";
 
           // $arrayPostData['messages'][0]['contents']['header']['contents'][2]['type'] =  "text";
           // $arrayPostData['messages'][0]['contents']['header']['contents'][2]['text'] =  $request_array['pay'];
@@ -97,16 +98,16 @@
           // $arrayPostData['messages'][0]['contents']['body']['contents'][2]['margin'] =  "lg";
           // $arrayPostData['messages'][0]['contents']['body']['contents'][2]['color'] =  "#C3C3C3";
 
-          $arrayPostData['messages'][0]['contents']['footer']['type'] =  "box";
-          $arrayPostData['messages'][0]['contents']['footer']['layout'] =  "horizontal";
-          $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['type'] =  "text";
-          $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['text'] =  "View Details";
-          $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['size'] =  "lg";
-          $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] =  "start";
-          $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['color'] =  "#0084B6";
-          $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['action']['type'] =  "uri";
-          $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['action']['label'] =  "View Detail";
-          $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['action']['uri'] =  $request_array['base_url'];
+          // $arrayPostData['messages'][0]['contents']['footer']['type'] =  "box";
+          // $arrayPostData['messages'][0]['contents']['footer']['layout'] =  "horizontal";
+          // $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['type'] =  "text";
+          // $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['text'] =  "View Details";
+          // $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['size'] =  "lg";
+          // $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] =  "start";
+          // $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['color'] =  "#0084B6";
+          // $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['action']['type'] =  "uri";
+          // $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['action']['label'] =  "View Detail";
+          // $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['action']['uri'] =  $request_array['base_url'];
           
           
           // var_dump($arrayPostData);
