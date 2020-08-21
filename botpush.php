@@ -42,7 +42,7 @@
         //   }
         
       $message = $request_array['type'];
-        if($message == "message"){
+        // if($message == "message"){
           $arrayPostData['to'] = $request_array['id'];
           $arrayPostData['messages'][0]['type'] = "text";
           $arrayPostData['messages'][0]['text'] = $request_array['text'];
@@ -110,14 +110,13 @@
           // $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['action']['uri'] =  $request_array['base_url'];
           
           
-           var_dump($request_array);
+          //  var_dump($request_array);
+           echo "test";
           // die();
       pushMsg($arrayHeader,$arrayPostData);
       echo true;
-        }else{
-          var_dump($request_array);
-          echo true;
-        }
+
+      
    function pushMsg($arrayHeader,$arrayPostData){
       $strUrl = "https://api.line.me/v2/bot/message/push";
       $ch = curl_init();
