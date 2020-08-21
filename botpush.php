@@ -119,7 +119,7 @@
 
       
    function pushMsg($arrayHeader,$arrayPostData){
-    echo json_encode($arrayPostData);
+    echo json_encode($arrayHeader);
       $strUrl = "https://api.line.me/v2/bot/message/push";
       $ch = curl_init();
       curl_setopt($ch, CURLOPT_URL,$strUrl);
