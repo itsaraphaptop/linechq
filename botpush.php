@@ -111,7 +111,7 @@
           
           
            $post = json_encode($request_array);
-           vardump($post);
+           var_dump($post);
           die();
       pushMsg($arrayHeader,$arrayPostData);
       echo true;
