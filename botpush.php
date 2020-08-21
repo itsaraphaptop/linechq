@@ -42,6 +42,7 @@
         //   }
         
       $message = $request_array['type'];
+      $n = 0;
         if($message == "message"){
           $arrayPostData['to'] = $request_array['id'];
           // $arrayPostData['messages'][0]['type'] = "text";
@@ -111,7 +112,11 @@
           
           // var_dump($arrayPostData);
           // die();
-      pushMsg($arrayHeader,$arrayPostData);
+      if($n==0){
+        pushMsg($arrayHeader,$arrayPostData);
+      }
+
+      $n++;
       echo true;
    }elseif ($message == "flex") {
     
