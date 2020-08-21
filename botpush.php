@@ -6,11 +6,11 @@
     ini_set('display_errors', 'On');
   
     // Channel secret - (from https://developers.line.me/console/)
-    $token = 'BzhHslWQhDtU0WMuY0CDT5HTmfvarIxlganYTLGZ5iVUHcfYCqCLVj36kW4+sTk9G+EQlw2cln35pc9hOCs/0AnKyn5b551+o4tRM6SI758KmqmTGtTwDZf7uPXoC4QycYOthQN/OWmdO/kwnyT6wwdB04t89/1O/w1cDnyilFU=';
+    $token = 'vVKXcFBS2QSnAjCqY1ZxgiKadKaG9hwxQC0ASon+7ymTfbuI4hZOugcu37dVI5u8D2Gp9CVVV8H2KpCYAu11Deh9APRBfIh6UkciVOOomRSg1tmu+wzW2v0Mt13viy6cBHnL+WhS/K0N7m2fHWf53gdB04t89/1O/w1cDnyilFU=';
     // $token = $_POST['token'];
     
     // Channel access token - (from https://developers.line.me/console/)
-    $secret = '31b181987a9b649b3c894403f9fc2dbf';
+    $secret = '7c416880bdc5e2711d2dd44518593d26';
     // $secret = $_POST['secret'];
 //    $pushID = array(
 //        "U11fae07ce7afb4aac7875be082b2b3ee",
