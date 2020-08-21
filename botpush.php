@@ -113,8 +113,8 @@
            $post = json_encode($request_array);
            vardump($post);
           die();
-      pushMsg($arrayHeader,$arrayPostData);
-      echo true;
+      // pushMsg($arrayHeader,$arrayPostData);
+      // echo true;
 
       
    function pushMsg($arrayHeader,$arrayPostData){
