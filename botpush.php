@@ -44,7 +44,7 @@
       $message = $request_array['type'];
       $n = 0;
         if($message == "message"){
-          $arrayPostData['to'] = 'Udca5855e2d35368c16233a9f3039b4ee';
+          $arrayPostData['to'] = $request_array['id'];
           // $arrayPostData['messages'][0]['type'] = "text";
           // $arrayPostData['messages'][0]['text'] = $request_array['text'];
           // $arrayPostData['messages'][1]['type'] = "sticker";
