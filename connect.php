@@ -1,6 +1,6 @@
 <?php
 $info = array(
-    'host' => '203.150.202.108',
+    'host' => '203.154.41.5',
     'user' => 'root',
     'password' => 'Icon@2020',
     'dbname' => 'cm_prd'
