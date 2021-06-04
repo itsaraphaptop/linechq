@@ -98,16 +98,16 @@
           // $arrayPostData['messages'][0]['contents']['body']['contents'][2]['margin'] =  "lg";
           // $arrayPostData['messages'][0]['contents']['body']['contents'][2]['color'] =  "#C3C3C3";
 
-          $arrayPostData['messages'][0]['contents']['footer']['type'] =  "box";
-          $arrayPostData['messages'][0]['contents']['footer']['layout'] =  "horizontal";
-          $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['type'] =  "text";
-          $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['text'] =  "View Details";
-          $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['size'] =  "lg";
-          $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] =  "start";
-          $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['color'] =  "#0084B6";
-          $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['action']['type'] =  "uri";
-          $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['action']['label'] =  "View Detail";
-          $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['action']['uri'] =  $request_array['base_url'];
+          //$arrayPostData['messages'][0]['contents']['footer']['type'] =  "box";
+         // $arrayPostData['messages'][0]['contents']['footer']['layout'] =  "horizontal";
+         // $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['type'] =  "text";
+         // $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['text'] =  "View Details";
+         // $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['size'] =  "lg";
+         // $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['align'] =  "start";
+         // $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['color'] =  "#0084B6";
+         // $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['action']['type'] =  "uri";
+        //  $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['action']['label'] =  "View Detail";
+        //  $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['action']['uri'] =  $request_array['base_url'];
           
           
           // var_dump($arrayPostData);
