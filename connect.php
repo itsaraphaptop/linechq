@@ -2,6 +2,7 @@
 $info = array(
     'host' => '203.154.41.5',
     'user' => 'root',
+    'port' => '3306',
     'password' => 'Icon@2020',
     'dbname' => 'cm_prd'
 );
