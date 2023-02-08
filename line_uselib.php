@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-  <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/adminlte.min.css">
-  <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <!-- <script src="dist/plugins/jquery/jquery.min.js"></script> -->
+<meta charset="utf-8">
+	<title>Line Alert</title>
+	<link href="boostrap4/dist/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+	<link href="boostrap4/dist/assets/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
+	<link href="boostrap4/dist/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+	<!--end::Global Theme Styles-->
+	<!--begin::Layout Themes(used by all pages)-->
+	<link href="boostrap4/dist/assets/css/themes/layout/header/base/light.css" rel="stylesheet" type="text/css" />
+	<link href="boostrap4/dist/assets/css/themes/layout/header/menu/light.css" rel="stylesheet" type="text/css" />
+	<link href="boostrap4/dist/assets/css/themes/layout/brand/dark.css" rel="stylesheet" type="text/css" />
+	<link href="boostrap4/dist/assets/css/themes/layout/aside/dark.css" rel="stylesheet" type="text/css" />
+	<!--end::Layout Themes-->
 </head>
 <body>
 <?php
@@ -28,9 +28,9 @@ error_reporting(E_ALL);
 //require_once("dbconnect.php");
  
 /// ส่วนการกำหนดค่านี้สามารถทำเป็นไฟล์ include แทนได้
-define('LINE_LOGIN_CHANNEL_ID','1655456463');
-define('LINE_LOGIN_CHANNEL_SECRET','8bfcbd1aaa4021db746c7a523968b4bf');
-define('LINE_LOGIN_CALLBACK_URL','https://lineproudapiprd.herokuapp.com/login_uselib_callback.php');
+define('LINE_LOGIN_CHANNEL_ID','1657307016');
+define('LINE_LOGIN_CHANNEL_SECRET','7d293348f448fef98e9918cdc9d4f798');
+define('LINE_LOGIN_CALLBACK_URL','https://app.mesukdee.com/botpush/login_uselib_callback.php');
  
 $LineLogin = new LineLoginLib(
     LINE_LOGIN_CHANNEL_ID, LINE_LOGIN_CHANNEL_SECRET, LINE_LOGIN_CALLBACK_URL);
@@ -76,13 +76,7 @@ if(isset($_SESSION['ses_login_userData_val']) && $_SESSION['ses_login_userData_v
     $lineUserData = json_decode($_SESSION['ses_login_userData_val'],true);
     // print_r($lineUserData);
    
-    // connect DB
-    include('connect.php');
 
-    //2. query ข้อมูลจากตาราง: 
-    $sql = "select * from member where lineid = '".$lineUserData['sub']."'" or die("Error:" . mysqli_error()); 
-    //3. execute the query. 
-    $query = mysqli_query($conn, $sql); 
    
     // echo "<select id='compcode' class='form-control'>";
     // while($row = mysqli_fetch_array($result)) { 
@@ -96,51 +90,20 @@ if(isset($_SESSION['ses_login_userData_val']) && $_SESSION['ses_login_userData_v
             <input type="hidden" name="userID" id="user" value="<?=$lineUserData['sub'];?>">
             <!-- <select name="comp_code" id="compcode" class="form-control">
                 <option value="">เลือกบริษัท</option>
-                <?php while($result = mysqli_fetch_assoc($query)){ ?>
-                    <option value="<?=$result['compcode']?>"><?=$result['company_name']?></option>
-                <?php } ?>
+               
             </select>
             <br>
             <select name="memID" id="member" class="form-control">
                 <option value="">เลือกชื่อ</option>
             </select>
             <br> -->
-            <?php if (mysqli_num_rows($query) > 0) {?>
-                <br>
+                <!-- <br>
                 <div class="text-center"><img class="rounded-circle" style="width:100px;" src="<?= $lineUserData['picture'];?>" /></div><br>
                 <br>
                 <div class="text-center"><p>เข้าบัญชีด้วยบัญชี</p></div>
-                <!-- <div class="text-center"><h5>Line UserID: <?= $lineUserData['sub'];?></h5></div> -->
+                <div class="text-center"><h5>Line UserID: <?= $lineUserData['sub'];?></h5></div>
                 <div class="text-center"><b><?= $lineUserData['name'];?></b></div>
-                <br>
-            <?php }else{?>
-                <br>
-                <div class="text-center"><h3>CM Login</h3></div>
-                <br>
-                <div id="error"><span></span></div>
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label for="">Username</label>
-                        <input type="text" class="form-control" name="username" id="username">
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label for="">Password</label>
-                        <input type="password" class="form-control" name="password" id ="password">
-                    </div>
-                </div>
-                <button type="button" class="btn btn-success btn-block btn-lg" id="syncs">เข้าสู่ระบบ</button>
-            <?php }?>
-        </div>
-        <div id="lineinfo">
-            <br>
-            <div class="text-center"><img class="rounded-circle" style="width:100px;" src="<?= $lineUserData['picture'];?>" /></div><br>
-            <br>
-            <div class="text-center"><p>เข้าบัญชีด้วยบัญชี</p></div>
-            <!-- <div class="text-center"><h5>Line UserID: <?= $lineUserData['sub'];?></h5></div> -->
-            <div class="text-center"><b><?= $lineUserData['name'];?></b></div>
-            <br>
+                <br> -->
             
         </div>
     </div>
@@ -163,7 +126,6 @@ if(isset($_SESSION['ses_login_userData_val']) && $_SESSION['ses_login_userData_v
     // echo "<a class='btn btn-success' href='#'>edit</a>";
     // echo "</table>";
     //5. close connection
-    mysqli_close($conn);
     // Close DB
     // echo "<hr>";
     // echo "Line UserID: ".$lineUserData['sub']."<br>";
@@ -232,7 +194,64 @@ if(isset($_POST['lineLogout'])){
     $LineLogin->redirect("line_uselib.php");
 }
 ?>
-<script src="script.js"></script>
+<!-- <script src="script.js"></script> -->
+<script src="boostrap4/dist/assets/plugins/global/plugins.bundle.js"></script>
+<script src="boostrap4/dist/assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
+<script src="boostrap4/dist/assets/js/scripts.bundle.js"></script>
+<script>
+    var settings = {
+    "url": "https://api.appsheet.com/api/v2/apps/8e8441a4-dd4e-495f-8e34-5d8be53df736/tables/0_Sale DB/Action?applicationAccessKey=V2-fUlze-cILgU-lt76u-BAZ3x-4IHcb-tY6xi-YjBVk-xJCYu",
+    "method": "POST",
+    "timeout": 0,
+    "headers": {
+        "Content-Type": "application/json"
+    },
+    "data": JSON.stringify({
+        "Action": "find",
+        "Properties": {
+        "Locale": "en-US",
+        "Location": "47.623098, -122.330184",
+        "Timezone": "Pacific Standard Time"
+        }
+    }),
+    };
+
+    $.ajax(settings).done(function (response) {
+    // console.log(response);
+    // var json = JSON.parse(response);
+    $.each(response, function (key, value) {
+        if  (value.LineID == "<?= $lineUserData['sub'];?>"){
+            console.log(value.LineID);
+            var form = new FormData();
+            var settings = {
+                "url": "https://app.mesukdee.com/lineoa/api?line="+value.LineID+"&customercode="+value.PatientID+"&customername="+value.LIFF_CustomerName+"&buydate="+value.Display_Buy_Date+"&Frame="+value.LIFF_Frame+"&Lens="+value.LIFF_Lens+"&Prescription="+value.LIFF_Prescription,
+                "method": "POST",
+                "timeout": 0,
+                "processData": false,
+                "mimeType": "multipart/form-data",
+                "contentType": false,
+                "data": form
+            };
+
+            $.ajax(settings).done(function (response) {
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: value.LIFF_CustomerName,
+                    text: "Your work has been Send",
+                    showConfirmButton: false,
+                    // timer: 3000
+                });
+            });
+        }
+        else{
+            console.log("no data found");
+        }
+    })
+    // var LineID = $.trim(response.LineID);
+    // console.log(LineID);
+    });
+</script>
 </body>
 </html>
 

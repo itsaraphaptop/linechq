@@ -6,11 +6,11 @@
     ini_set('display_errors', 'On');
   
     // Channel secret - (from https://developers.line.me/console/)
-    $token = 'WpVfFtNpNGBrEbTXHdDx2r1hapS4lmnUlVHwQLSE9fEovx5f6a00KfndOziyDAHO2wXam3CO2Vv08BdNUk8/9oRXuzCK1g0hTtpBbrNgLEVvfIDJgYwWsOtm/4ul3QvhHHYUD1TuguiL2M9blyaURgdB04t89/1O/w1cDnyilFU=';
+    $token = 'b4Mm4PJSr3Ohue4vaTsg/W39BESnwRb0FI/Q9Y8MuGyFD9+rGi7BIKgRpPIA42sDu6LXibUl3pkyvOEGq2i8vjdpupkYio0Ji8lF6jWaEDVvEtbYufmHUvJZlH9DccfvKwZoi5OKLy3p1c3YnrdHEAdB04t89/1O/w1cDnyilFU=';
     // $token = $_POST['token'];
     
     // Channel access token - (from https://developers.line.me/console/)
-    $secret = '99b464bd4e66418153d9dd3846baebba';
+    $secret = '3a1e2108bff253cfa7480883dc105c88';
     // $secret = $_POST['secret'];
 //    $pushID = array(
 //        "U11fae07ce7afb4aac7875be082b2b3ee",
@@ -40,10 +40,10 @@
       //   }else{
         //     echo "false";
         //   }
-        
+        echo $request_array['type'];
       $message = $request_array['type'];
       $n = 0;
-        if($message == "message"){
+      if($message == "message"){
           $arrayPostData['to'] = $request_array['id'];
           // $arrayPostData['messages'][0]['type'] = "text";
           // $arrayPostData['messages'][0]['text'] = $request_array['text'];
@@ -65,7 +65,7 @@
           $arrayPostData['messages'][0]['contents']['header']['contents'][0]['color'] =  "#009813";
 
           $arrayPostData['messages'][0]['contents']['header']['contents'][1]['type'] =  "text";
-          $arrayPostData['messages'][0]['contents']['header']['contents'][1]['text'] =  $request_array['price'];
+          $arrayPostData['messages'][0]['contents']['header']['contents'][1]['text'] =  $request_array['customername'];
           $arrayPostData['messages'][0]['contents']['header']['contents'][1]['size'] =  "lg";
           $arrayPostData['messages'][0]['contents']['header']['contents'][1]['weight'] =  "bold";
           $arrayPostData['messages'][0]['contents']['header']['contents'][1]['color'] =  "#000000";
@@ -110,7 +110,7 @@
            $arrayPostData['messages'][0]['contents']['footer']['contents'][0]['action']['uri'] =  $request_array['base_url'];
           
           
-          // var_dump($arrayPostData);
+          var_dump($arrayPostData);
           // die();
       if($n==0){
         pushMsg($arrayHeader,$arrayPostData);
@@ -169,36 +169,420 @@
       //     ]
       //   ]
       // ];
+
+
      $arrayPostData = [
-                        "to" => $request_array['id'],
-                        "messages" => [
-                          [
-                            "type" => "flex",
-                            "altText" => "This is a Flex Message",
-                            "contents" => [
-                              "type" => "bubble",
-                              "body" => [
-                                "type" => "box",
-                                "layout" => "vertical",
-                                "contents" => [
-                                  [
-                                    "type" => "button",
-                                    "style" => "primary",
-                                    "height" => "sm",
-                                    "action" => [
-                                      "type" => "uri",
-                                      "label" => "Add to Cart",
-                                      "uri" => "https://developers.line.me"
-                                    ]
-                                  ]
-                                ]
-                              ]
-                            ]
-                          ]
+      "to" => $request_array['id'],
+      "messages" => [
+        [
+          "type" => "flex",
+          "altText" => "This is a Flex Message",
+          "contents" => [
+            "type" => "bubble",
+            "header" => [
+              "type" => "box",
+              "layout" => "vertical",
+              "contents" => [
+                [
+                  "type"=> "image",
+                  "url"=> "https://sv1.picz.in.th/images/2022/08/25/aNrEuq.jpg",
+                  "size"=> "full",
+                  "aspectMode"=> "cover",
+                  "margin"=> "none",
+                  "align"=> "center",
+                  "backgroundColor"=> "#044383",
+                  "offsetTop"=> "none",
+                  "offsetBottom"=> "none",
+                  "offsetStart"=> "none",
+                  "aspectRatio"=> "31:15",
+                  "position"=> "absolute",
+                  "offsetEnd"=> "none",
+                  "gravity"=> "center"
+                ],
+                [
+                  "type" => "text",
+                  "text" => $request_array['text'],
+                  "size" => "xs",
+                  "margin"=> "none",
+                  "align" => "end",
+                  "weight" => "regular",
+                  "offsetTop"=> "lg",
+                  "adjustMode"=> "shrink-to-fit",
+                  "color" => "#ffffff"
+                ]
+              ],
+              "spacing"=> "none",
+              "margin"=> "none",
+              "height"=> "100px",
+              "justifyContent"=> "flex-end"
+            ],
+            "body" => [
+              "type" => "box",
+              "layout" => "vertical",
+              "spacing" => "md",
+              "contents" => [
+                [
+                  "type" => "text",
+                  "text" => $request_array['customername'],
+                  "wrap" => true,
+                  "weight" => "bold",
+                  "size" => "lg",
+                  "margin" => "none"
+                ],
+                [
+                  "type" => "box",
+                  "layout" => "vertical",
+                  "margin" => "xs",
+                  "spacing" => "xs",
+                  "contents" => [
+                    [
+                      "type" => "box",
+                      "layout" => "baseline",
+                      "spacing" => "sm",
+                      "contents" => [
+                        [
+                          "type" => "text",
+                          "text" => "วันที่ :",
+                          "size" => "sm",
+                          "flex" => 2,
+                          "margin" => "none"
+                        ],
+                        [
+                          "type" => "text",
+                          "text" => $request_array['buydate'],
+                          "wrap" => true,
+                          "size" => "md",
+                          "color" => "#000000",
+                          "flex" => 8,
+                          "weight" => "regular",
+                          "decoration" => "none",
+                          "align" => "start"
                         ]
-                      ];
-      
-                      pushMsgjson($arrayHeader,$arrayPostData);
+                      ],
+                      "margin" => "none"
+                    ],
+                    [
+                      "type" => "box",
+                      "layout" => "baseline",
+                      "spacing" => "sm",
+                      "contents" => [
+                        [
+                          "type" => "text",
+                          "text" => "กรอบ :",
+                          "size" => "sm",
+                          "flex" => 2,
+                          "margin" => "none"
+                        ],
+                        [
+                          "type" => "text",
+                          "text" => $request_array['frame'],
+                          "wrap" => true,
+                          "size" => "md",
+                          "color" => "#044383",
+                          "flex" => 8,
+                          "weight" => "regular",
+                          "decoration" => "none"
+                        ]
+                      ]
+                    ],
+                    [
+                      "type" => "box",
+                      "layout" => "baseline",
+                      "spacing" => "sm",
+                      "contents" => [
+                        [
+                          "type" => "text",
+                          "text" => "เลนส์ :",
+                          "size" => "sm",
+                          "flex" => 2,
+                          "margin" => "none"
+                        ],
+                        [
+                          "type" => "text",
+                          "text" => $request_array['lens'],
+                          "wrap" => true,
+                          "size" => "md",
+                          "color" => "#044383",
+                          "flex" => 8,
+                          "weight" => "regular"
+                        ]
+                      ]
+                    ],
+                    [
+                      "type" => "separator",
+                      "margin" => "md"
+                    ],
+                    [
+                      "type" => "box",
+                      "layout" => "baseline",
+                      "spacing" => "sm",
+                      "contents" => [
+                        [
+                          "type" => "text",
+                          "text" => $request_array['prescription'],
+                          "wrap" => true,
+                          "size" => "sm",
+                          "color" => "#576975",
+                          "flex" => 6,
+                          "weight" => "regular",
+                          "decoration" => "none",
+                          "margin" => "xs"
+                        ]
+                      ]
+                    ]
+                  ],
+                  "borderWidth" => "none",
+                  "borderColor" => "#D5EAFF"
+                ]
+              ],
+            ],
+            "footer" => [
+              "type" => "box",
+              "layout" => "vertical",
+              "contents" => [
+                [
+                  "type" => "image",
+                  "url" => "https://sv1.picz.in.th/images/2022/08/25/aNrQVb.jpg",
+                  "size" => "full",
+                  "aspectRatio" => "18:4",
+                  "aspectMode" => "cover",
+                  "margin" => "none",
+                  "offsetTop" => "none",
+                  "offsetBottom" => "none",
+                  "offsetStart" => "none",
+                  "position" => "absolute",
+                  "align" => "center",
+                  "gravity" => "center",
+                  "offsetEnd" => "none"
+                ]
+              ],
+              "spacing" => "none",
+              "margin" => "none",
+              "offsetEnd" => "none",
+              "offsetBottom" => "none",
+              "height" => "65px",
+              "borderColor" => "#576975"
+            ],
+            "styles" => [
+              "footer" => [
+                "backgroundColor" => "#576975",
+                "separator" => true
+              ]
+            ]
+          ]
+        ]
+      ]
+    ];
+
+    // $arrayPostData = [
+    //   "to" => $request_array['id'],
+    //   "messages" => [
+    //     [
+    //       "type"=> "flex",
+    //       "altText"=> "this is a flex message",
+    //       "contents"=>
+
+    //       //Start FLEX      
+
+    //       [
+    //         "type"=> "bubble",
+    //         "header"=> [
+    //           "type"=> "box",
+    //           "layout"=> "vertical",
+    //           "contents"=> [
+    //             [
+    //               "type"=> "image",
+    //               "url"=> "https://sv1.picz.in.th/images/2022/08/25/aNrEuq.jpg",
+    //               "size"=> "full",
+    //               "aspectMode"=> "cover",
+    //               "margin"=> "none",
+    //               "align"=> "center",
+    //               "backgroundColor"=> "#044383",
+    //               "offsetTop"=> "none",
+    //               "offsetBottom"=> "none",
+    //               "offsetStart"=> "none",
+    //               "aspectRatio"=> "31:15",
+    //               "position"=> "absolute",
+    //               "offsetEnd"=> "none",
+    //               "gravity"=> "center"
+    //             ],
+    //             [
+    //               "type"=> "text",
+    //               "text"=> "" + $request_array['text'],
+    //               "size"=> "xs",
+    //               "color"=> "#ffffff",
+    //               "margin"=> "none",
+    //               "align"=> "end",
+    //               "weight"=> "regular",
+    //               "offsetTop"=> "lg",
+    //               "adjustMode"=> "shrink-to-fit"
+    //             ]
+    //           ],
+    //           "spacing"=> "none",
+    //           "margin"=> "none",
+    //           "height"=> "100px",
+    //           "justifyContent"=> "flex-end"
+    //         ],
+    //         "body"=> [
+    //           "type"=> "box",
+    //           "layout"=> "vertical",
+    //           "spacing"=> "md",
+    //           "contents"=> [
+    //             [
+    //               "type"=> "text",
+    //               "text"=> "" + $request_array['customername'],
+    //               "wrap"=> true,
+    //               "weight"=> "bold",
+    //               "size"=> "lg",
+    //               "margin"=> "none"
+    //             ],
+    //             [
+    //               "type"=> "box",
+    //               "layout"=> "vertical",
+    //               "margin"=> "xs",
+    //               "spacing"=> "xs",
+    //               "contents"=> [
+    //                 [
+    //                   "type"=> "box",
+    //                   "layout"=> "baseline",
+    //                   "spacing"=> "sm",
+    //                   "contents"=> [
+    //                     [
+    //                       "type"=> "text",
+    //                       "text"=> "วันที่ :",
+    //                       "size"=> "sm",
+    //                       "flex"=> 2,
+    //                       "margin"=> "none"
+    //                     ],
+    //                     [
+    //                       "type"=> "text",
+    //                       "text"=> "" + $request_array['buydate'],
+    //                       "wrap"=> true,
+    //                       "size"=> "md",
+    //                       "color"=> "#000000",
+    //                       "flex"=> 8,
+    //                       "weight"=> "regular",
+    //                       "decoration"=> "none",
+    //                       "align"=> "start"
+    //                     ]
+    //                   ],
+    //                   "margin"=> "none"
+    //                 ],
+    //                 [
+    //                   "type"=> "box",
+    //                   "layout"=> "baseline",
+    //                   "spacing"=> "sm",
+    //                   "contents"=> [
+    //                     [
+    //                       "type"=> "text",
+    //                       "text"=> "กรอบ :",
+    //                       "size"=> "sm",
+    //                       "flex"=> 2,
+    //                       "margin"=> "none"
+    //                     ],
+    //                     [
+    //                       "type"=> "text",
+    //                       "text"=> "" , //วันที่ขาย
+    //                       "wrap"=> true,
+    //                       "size"=> "md",
+    //                       "color"=> "#044383",
+    //                       "flex"=> 8,
+    //                       "weight"=> "regular",
+    //                       "decoration"=> "none"
+    //                     ]
+    //                   ]
+    //                   ],
+    //                 [
+    //                   "type"=> "box",
+    //                   "layout"=> "baseline",
+    //                   "spacing"=> "sm",
+    //                   "contents"=> [
+    //                     [
+    //                       "type"=> "text",
+    //                       "text"=> "เลนส์ :",
+    //                       "size"=> "sm",
+    //                       "flex"=> 2,
+    //                       "margin"=> "none"
+    //                     ],
+    //                     [
+    //                       "type"=> "text",
+    //                       "text"=> "" , // Lens
+    //                       "wrap"=> true,
+    //                       "size"=> "md",
+    //                       "color"=> "#044383",
+    //                       "flex"=> 8,
+    //                       "weight"=> "regular"
+    //                     ]
+    //                   ]
+    //                   ],
+    //                 [
+    //                   "type"=> "separator",
+    //                   "margin"=> "md"
+    //                 ],
+    //                 [
+    //                   "type"=> "box",
+    //                   "layout"=> "baseline",
+    //                   "spacing"=> "sm",
+    //                   "contents"=> [
+    //                     [
+    //                       "type"=> "text",
+    //                       "text"=> "", // Prescription
+    //                       "wrap"=> true,
+    //                       "size"=> "sm",
+    //                       "color"=> "#576975",
+    //                       "flex"=> 6,
+    //                       "weight"=> "regular",
+    //                       "decoration"=> "none",
+    //                       "margin"=> "xs"
+    //                   ]
+    //                   ]
+    //                 ]
+    //               ],
+    //               "borderWidth"=> "none",
+    //               "borderColor"=> "#D5EAFF"
+    //             ]
+    //           ]
+    //           ],
+    //         "footer"=> [
+    //           "type"=> "box",
+    //           "layout"=> "vertical",
+    //           "contents"=> [
+    //             [
+    //               "type"=> "image",
+    //               "url"=> "https://sv1.picz.in.th/images/2022/08/25/aNrQVb.jpg",
+    //               "size"=> "full",
+    //               "aspectRatio"=> "18:4",
+    //               "aspectMode"=> "cover",
+    //               "margin"=> "none",
+    //               "offsetTop"=> "none",
+    //               "offsetBottom"=> "none",
+    //               "offsetStart"=> "none",
+    //               "position"=> "absolute",
+    //               "align"=> "center",
+    //               "gravity"=> "center",
+    //               "offsetEnd"=> "none"
+    //             ]
+    //           ],
+    //           "spacing"=> "none",
+    //           "margin"=> "none",
+    //           "offsetEnd"=> "none",
+    //           "offsetBottom"=> "none",
+    //           "height"=> "65px",
+    //           "borderColor"=> "#576975"
+    //         ],
+    //         "styles"=> [
+    //           "footer"=> [
+    //             "backgroundColor"=> "#576975",
+    //             "separator"=> true
+    //           ]
+    //         ]
+    //       ]
+
+    //     ]
+    //   ]
+    // ];
+
+    pushMsg($arrayHeader,$arrayPostData);
    }
    function pushMsg($arrayHeader,$arrayPostData){
       $strUrl = "https://api.line.me/v2/bot/message/push";
