@@ -198,6 +198,7 @@ if(isset($_POST['lineLogout'])){
 <script src="boostrap4/dist/assets/plugins/global/plugins.bundle.js"></script>
 <script src="boostrap4/dist/assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
 <script src="boostrap4/dist/assets/js/scripts.bundle.js"></script>
+<script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 <script>
     var settings = {
     "url": "https://api.appsheet.com/api/v2/apps/8e8441a4-dd4e-495f-8e34-5d8be53df736/tables/0_Sale DB/Action?applicationAccessKey=V2-fUlze-cILgU-lt76u-BAZ3x-4IHcb-tY6xi-YjBVk-xJCYu",
@@ -224,7 +225,7 @@ if(isset($_POST['lineLogout'])){
             console.log(value.LineID);
             var form = new FormData();
             var settings = {
-                "url": "https://app.mesukdee.com/lineoa/api?line="+value.LineID+"&customercode="+value.PatientID+"&customername="+value.LIFF_CustomerName+"&buydate="+value.Display_Buy_Date+"&Frame="+value.LIFF_Frame+"&Lens="+value.LIFF_Lens+"&Prescription="+value.LIFF_Prescription,
+                "url": "https://app.mesukdee.com/lineoa/api?line="+value.LineID+"&customercode="+value.PatientID+"&customername="+value.LIFF_CustomerName+"&buydate="+value.Display_Buy_Date+"&Frame="+value.LIFF_Frame+"&Lens="+value.LIFF_Lens+"&Final_RE="+value.Final_RE+"&Final_LE="+value.Final_LE,
                 "method": "POST",
                 "timeout": 0,
                 "processData": false,
@@ -250,7 +251,8 @@ if(isset($_POST['lineLogout'])){
     })
     // var LineID = $.trim(response.LineID);
     // console.log(LineID);
-    });
+    liff.closeWindow();
+});
 </script>
 </body>
 </html>

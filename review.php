@@ -17,9 +17,6 @@
     </style>
 </head>
 <body class="center">
-    <div class="container">
-        <!-- <h1 id="result"></h1> -->
-    </div>
     <?php 
         $getid = $_GET['id'];
            include('connect.php');
@@ -31,10 +28,10 @@
            $sql = "select * from review where id = '".$_GET['id']."'" or die("Error:" . mysqli_error()); 
            //3. execute the query. 
            $query = mysqli_query($conn, $sql); 
-        //    print_r($query);
+           print_r($query);
            if ($query->num_rows > 0) {
             while($row = $query->fetch_assoc()) {
-                // echo $row['title'];
+                echo $row['title'];
     ?>
     <img class="res" src="./images/<?=$row['image']?>" alt="screencapture-facebook-concepteyebrows-posts-pfbid0-Rc-G6-U6-Qj-SJ7gs7z-Hoj-D8q72-Jbs-Pm-QDBD8pd3-Xf" border="0">
    <?php }
@@ -43,20 +40,5 @@
    }?>
 
    <?php  mysqli_close($conn);?>
-   
-<script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
-<script>
-    async function main(){
-        await liff.init({ liffId : '1657918882-kK3ar2al'});
-        if(!liff.isLoggedIn()){
-            const destinationUrl = window.location.href;
-            liff.login({ redirectUri: destinationUrl});
-        }
-
-        const urlParams = new URLSearchParams(window.location.search);
-        document.querySelector('#result').append(urlParams.get('id'));
-    }
-    main();
-</script>
 </body>
 </html>

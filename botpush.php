@@ -176,7 +176,7 @@
       "messages" => [
         [
           "type" => "flex",
-          "altText" => "This is a Flex Message",
+          "altText" => "ใบรับประกัน ".$request_array['customername'],
           "contents" => [
             "type" => "bubble",
             "header" => [
@@ -319,7 +319,43 @@
                       "contents" => [
                         [
                           "type" => "text",
-                          "text" => $request_array['prescription'],
+                          "text" => "         SPH       CYL       AX        ADD ",
+                          "wrap" => true,
+                          "size" => "sm",
+                          "color" => "#576975",
+                          "flex" => 6,
+                          "weight" => "regular",
+                          "decoration" => "none",
+                          "margin" => "xs"
+                        ]
+                      ]
+                    ],
+                    [
+                      "type" => "box",
+                      "layout" => "baseline",
+                      "spacing" => "sm",
+                      "contents" => [
+                        [
+                          "type" => "text",
+                          "text" => "RE   ".$request_array['Final_RE'],
+                          "wrap" => true,
+                          "size" => "sm",
+                          "color" => "#576975",
+                          "flex" => 6,
+                          "weight" => "regular",
+                          "decoration" => "none",
+                          "margin" => "xs"
+                        ]
+                      ]
+                    ],
+                    [
+                      "type" => "box",
+                      "layout" => "baseline",
+                      "spacing" => "sm",
+                      "contents" => [
+                        [
+                          "type" => "text",
+                          "text" => "LE   ".$request_array['Final_LE'],
                           "wrap" => true,
                           "size" => "sm",
                           "color" => "#576975",
